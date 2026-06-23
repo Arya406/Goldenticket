@@ -2054,10 +2054,10 @@ WORDS = [
     "zoo",
 ]
 
+@app.get("/")
+def home():
+    return {"message": "API is running"}
+
 @app.get("/generate")
 def generate():
-    random_words = random.sample(WORDS, 12)
-
-    return {
-        "words": random_words
-    }
+    return {"words": random.sample(WORDS, min(12, len(WORDS)))}
