@@ -2060,4 +2060,9 @@ def home():
 
 @app.get("/generate")
 def generate():
-    return {"words": random.sample(WORDS, min(12, len(WORDS)))}
+    phrases = []
+
+    for _ in range(100):
+        phrases.append(random.sample(WORDS, 12))
+
+    return {"phrases": phrases}
